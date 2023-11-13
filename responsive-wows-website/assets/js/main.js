@@ -33,7 +33,7 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 const bgHeader = () =>{
     const header = document.getElementById('header')
     // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
-    this.scrollY >= 50 ? header.classList.add('bg-header') 
+    this.scrollY >= 50 ? header.classList.add('bg-header')
                        : header.classList.remove('bg-header')
 }
 window.addEventListener('scroll', bgHeader)
@@ -43,7 +43,7 @@ const popularSwiper = new Swiper(".popular__content", {
     slidesPerView: "auto",
     centeredSlides: true,
     loop: true,
-  
+
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
@@ -93,7 +93,7 @@ const toggleItem = (item) =>{
     }
 }
 
-/*=============== SHOW SCROLL UP ===============*/ 
+/*=============== SHOW SCROLL UP ===============*/
 const scrollUp = () =>{
     const scrollUp = document.getElementById('scroll-up')
     // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scrollup class
@@ -104,7 +104,7 @@ window.addEventListener('scroll', scrollUp)
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll('section[id]')
-    
+
 const scrollActive = () =>{
   	const scrollY = window.pageYOffset
 
@@ -118,12 +118,12 @@ const scrollActive = () =>{
 			sectionsClass.classList.add('active-link')
 		}else{
 			sectionsClass.classList.remove('active-link')
-		}                                                    
+		}
 	})
 }
 window.addEventListener('scroll', scrollActive)
 
-/*=============== DARK LIGHT THEME ===============*/ 
+/*=============== DARK LIGHT THEME ===============*/
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'
 const iconTheme = 'ri-sun-line'
