@@ -139,12 +139,20 @@
          <!-- CHAT BOX Button-->
          <section id="chatbot" >
             <button type="button" id="start-chat-btn">ChatBot</button>
-            <section id="chat_box">
-               <div id="chat_msgs">
+            <div id="myForm">
+               <form class="form-container">
+                 <h1>WOWs Chatbot!</h1>
+                 <div id="msg_contents">
 
-               </div>
-               <p>Enter Your Message Below:</p>
-            </section>
+                 </div>
+                 <label for="msg"><b>Message</b></label>
+                 <textarea placeholder="Type message.." name="msg" required></textarea>
+                 <div class="btns">
+                  <button type="submit" class="btn">Send</button>
+                  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                 </div>
+               </form>
+             </div>
          </section>
 
          <!--==================== POPULAR ====================-->

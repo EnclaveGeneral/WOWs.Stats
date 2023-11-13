@@ -397,7 +397,8 @@ body.dark-theme {
   font-weight: var(--font-medium);
 }
 
-/*-----------CHAT BOX BUTTON------------------*/
+/*-----------CHAT BOX ------------------*/
+/*Start Button To Initiate Chat Box */
 #start-chat-btn {
   color: white;
   padding: 16px 20px;
@@ -408,9 +409,100 @@ body.dark-theme {
   bottom: 10px;
   right: 20px;
   width: 120px;
-  background: var(--third-gradient);
+  background: var(--first-color-alt);
   border-radius: 10px;
   z-index: 9;
+}
+
+/* The popup chat - hidden by default */
+#myForm {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  z-index: 9;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: transparent;
+}
+
+#myForm h1 {
+  text-align: center;
+  color: var(--first-color);
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 500px;
+  min-width: 300px;
+  max-height: 500px;
+  padding: 5px;
+  background-color: white;
+  color: var(--first-color-alt);
+}
+
+/* The content area for all correspondence messages */
+#msg_contents {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 10px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 300px;
+  max-height: 300px;
+  min-width: 100px;
+  overflow: auto;
+
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 10px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 50px;
+  min-width: 100px;
+  max-height: 100px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: rgb(109, 220, 166);
+  outline: none;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  display: inline-block;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, #start-chat-btn {
+  opacity: 1;
 }
 
 
@@ -851,63 +943,6 @@ body.dark-theme {
   cursor: pointer;
 }
 
-/* The popup chat - hidden by default */
-.form-popup {
-  display: hidden;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-}
-
-/* Full-width textarea */
-.form-container textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 200px;
-}
-
-/* When the textarea gets focus, do something */
-.form-container textarea:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for the submit/login button */
-.form-container .btn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
-
-
 /*=============== FOOTER ===============*/
 .footer {
   padding-block: 3rem 2.5rem;
@@ -991,11 +1026,11 @@ body.dark-theme {
   background-color: hsl(0, 0%, 75%);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: hsl(0, 0%, 65%);
+  background-color: var(--first-color);
   border-radius: 0.5rem;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(0, 0%, 55%);
+  background-color: var(--first-color-alt);
 }
 
 /*=============== SCROLL UP ===============*/

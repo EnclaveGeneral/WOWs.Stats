@@ -93,6 +93,37 @@ const toggleItem = (item) =>{
     }
 }
 
+/* ==== CHAT BOX === */
+
+let opBtn = document.getElementById("start-chat-btn");
+opBtn.addEventListener("click", openForm);
+
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+
+let form = document.querySelector("#chatbot form");
+form.addEventListener("submit", sendQuery);
+
+function sendQuery(event) {
+    event.preventDefault();
+    let msg = document.querySelector(".form-container textarea").value;
+    let board = document.getElementById("msg_contents");
+    board.style.resize = "none";
+    let newEle = document.createElement("p");
+    newEle.textContent = `World of Warships" is a naval warfare-themed online multiplayer game developed by Wargaming. It is part of the "World of..." series, which also includes "World of Tanks" and "World of Warplanes." The game was officially released in September 2015 and is available on various platforms, including Windows, macOS, and PlayStation 4.
+
+    Gameplay:
+    In "World of Warships," players command historical naval vessels from various nations during the first half of the 20th century, including battleships, cruisers, destroyers, and aircraft carriers. The game features both player versus environment (PvE) and player versus player (PvP) modes.
+
+    The gameplay is tactical and team-based, with players working together to achieve objectives such as capturing key points on the map, defending their base, or sinking enemy ships. Each ship has unique characteristics, including speed, armor, firepower, and maneuverability, and players need to consider these factors strategically during battles.`;
+    board.appendChild(newEle);
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
+
 /*=============== SHOW SCROLL UP ===============*/
 const scrollUp = () =>{
     const scrollUp = document.getElementById('scroll-up')
