@@ -140,7 +140,7 @@ body.dark-theme {
 .dark-theme :is(.bg-header, .nav__menu) {
   box-shadow: 0 2px 16px hsla(0, 0%, 0%, 0.2);
 }
-.dark-theme :is(.home__shadow, .choose__shadow, .features__shadow, .join__shadow) {
+.dark-theme :is(.features__shadow, .join__shadow) {
   background: hsla(15, 60%, 52%, 0.4);
 }
 .dark-theme :is(.popular__card:hover, .features__info-card:hover, .products__card:hover) {
@@ -270,6 +270,11 @@ body.dark-theme {
   top: 0;
 }
 
+/* style ship costs */
+.ship_costs {
+  font-size: 25px;
+}
+
 /* Change background header */
 .bg-header {
   background-color: var(--body-color);
@@ -297,7 +302,7 @@ body.dark-theme {
   left: 0;
   width: 100%;
   height: 95%;
-  background-color: hsl(0, 0%, 8%);
+  background-image: var(--first-gradient);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 88%);
 }
 .home__container {
@@ -371,18 +376,6 @@ body.dark-theme {
   position: relative;
   justify-self: center;
 }
-.home__shadow {
-  position: absolute;
-  width: 200px;
-  height: 30px;
-  background: hsla(15, 60%, 52%, 0.6);
-  bottom: -0.75rem;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  filter: blur(12px);
-  z-index: -1;
-}
 .home__img {
   display: block;
   width: 220px;
@@ -409,72 +402,100 @@ body.dark-theme {
   bottom: 10px;
   right: 20px;
   width: 120px;
-  background: var(--first-color-alt);
+  background: var(--third-gradient);
   border-radius: 10px;
   z-index: 9;
 }
 
-/* The popup chat - hidden by default */
-#myForm {
+#chatbox {
+  z-index: 9;
+}
+
+#chatbox_header {
+  background-color: var(--first-color-alt);
+}
+
+#chat1 .form-outline .form-control~.form-notch div {
+  pointer-events: none;
+  border: 1px solid;
+  border-color: #eee;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+#chat1 .form-outline .form-control~.form-notch .form-notch-leading {
+left: 0;
+top: 0;
+height: 100%;
+border-right: none;
+border-radius: .65rem 0 0 .65rem;
+}
+
+#chat1 .form-outline .form-control~.form-notch .form-notch-middle {
+flex: 0 0 auto;
+max-width: 100%;
+height: 100%;
+border-right: none;
+border-left: none;
+}
+
+#chat1 .form-outline .form-control~.form-notch .form-notch-trailing {
+flex-grow: 1;
+height: 100%;
+border-left: none;
+border-radius: 0 .65rem .65rem 0;
+}
+
+#chat1 .form-outline .form-control:focus~.form-notch .form-notch-leading {
+border-top: 0.125rem solid #000000;
+border-bottom: 0.125rem solid #000000;
+border-left: 0.125rem solid #000000;
+}
+
+#chat1 .form-outline .form-control:focus~.form-notch .form-notch-leading,
+#chat1 .form-outline .form-control.active~.form-notch .form-notch-leading {
+border-right: none;
+transition: all 0.2s linear;
+}
+
+#chat1 .form-outline .form-control:focus~.form-notch .form-notch-middle {
+border-bottom: 0.125rem solid;
+border-color: #000000;
+}
+
+#chat1 .form-outline .form-control:focus~.form-notch .form-notch-middle,
+#chat1 .form-outline .form-control.active~.form-notch .form-notch-middle {
+border-top: none;
+border-right: none;
+border-left: none;
+transition: all 0.2s linear;
+}
+
+#chat1 .form-outline .form-control:focus~.form-notch .form-notch-trailing {
+border-top: 0.125rem solid #000000;
+border-bottom: 0.125rem solid #000b0e;
+border-right: 0.125rem solid #000000;
+}
+
+#chat1 .form-outline .form-control:focus~.form-notch .form-notch-trailing,
+#chat1 .form-outline .form-control.active~.form-notch .form-notch-trailing {
+border-left: none;
+transition: all 0.2s linear;
+}
+
+#chat1 .form-outline .form-control:focus~.form-label {
+color: var(--first-color-alt);
+}
+
+#chat1 .form-outline .form-control~.form-label {
+color: #bfbfbf;
+}
+
+.hidden {
   display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  z-index: 9;
-  border-radius: 10px;
-  border-style: solid;
-  border-width: 5px;
-  border-color: transparent;
 }
 
-#myForm h1 {
-  text-align: center;
-  color: var(--first-color);
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 500px;
-  min-width: 300px;
-  max-height: 500px;
-  padding: 5px;
-  background-color: white;
-  color: var(--first-color-alt);
-}
-
-/* The content area for all correspondence messages */
-#msg_contents {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0 10px 0;
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 300px;
-  max-height: 300px;
-  min-width: 100px;
-  overflow: auto;
-
-}
-
-/* Full-width textarea */
-.form-container textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0 10px 0;
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 50px;
-  min-width: 100px;
-  max-height: 100px;
-}
-
-/* When the textarea gets focus, do something */
-.form-container textarea:focus {
-  background-color: rgb(109, 220, 166);
-  outline: none;
-}
+/**-----------END CHAT SECTION-------------*/
 
 .btns {
   display: flex;
@@ -504,7 +525,6 @@ body.dark-theme {
 .form-container .btn:hover, #start-chat-btn {
   opacity: 1;
 }
-
 
 /*=============== BUTTON ===============*/
 .button {
@@ -632,18 +652,6 @@ body.dark-theme {
   position: relative;
   justify-self: center;
 }
-.choose__shadow {
-  position: absolute;
-  width: 170px;
-  height: 30px;
-  background: hsla(15, 60%, 52%, 0.6);
-  bottom: -0.75rem;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  filter: blur(12px);
-  z-index: -1;
-}
 .choose__img {
   position: relative;
   display: block;
@@ -758,7 +766,7 @@ body.dark-theme {
 .features__blob-title {
   font-size: 3.5rem;
   letter-spacing: 2px;
-  color: hsla(0, 0%, 100%, 0.3);
+  color: hsla(215, 93%, 30%, 0.3);
   font-weight: var(--font-medium);
   position: absolute;
   right: 0.5rem;
@@ -1257,12 +1265,6 @@ body.dark-theme {
     height: 670px;
     border: 10px solid transparent;
   }
-  .home__shadow {
-    width: 435px;
-    height: 60px;
-    bottom: -2rem;
-    filter: blur(28px);
-  }
   .home__img {
     width: 480px;
     transform: translateY(-10px);
@@ -1396,7 +1398,6 @@ body.dark-theme {
     height: 670px;
     border: 10px solid transparent;
   }
-  .choose__shadow,
   .features__shadow {
     width: 404px;
     height: 60px;

@@ -94,16 +94,24 @@ const toggleItem = (item) =>{
 }
 
 /* ==== CHAT BOX === */
+let chatBox = document.getElementById("chatbox");
+chatBox.classList.add("hidden");
+let startChatBtn = document.getElementById("start-chat-btn");
+startChatBtn.addEventListener("click", openChat);
+let closeChatBtn = document.getElementById("close_chat");
+closeChatBtn.addEventListener("click", closeChat);
 
-let opBtn = document.getElementById("start-chat-btn");
-opBtn.addEventListener("click", openForm);
-
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
+function openChat() {
+    chatBox.classList.remove("hidden");
+    startChatBtn.classList.add("hidden");
 }
 
-let form = document.querySelector("#chatbot form");
-form.addEventListener("submit", sendQuery);
+function closeChat() {
+    chatBox.classList.add("hidden");
+    startChatBtn.classList.remove("hidden");
+}
+
+/* ==== END CHAT BOX ==== */
 
 function sendQuery(event) {
     event.preventDefault();
@@ -124,6 +132,49 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
+/*=============== MATRIX Stats ===============*/
+const matrixPlayerID = 1019219315;
+
+fetch("https://api.worldofwarships.com/wows/account/statsbydate/?application_id=64d0eef050264d0d12f4752bd2989997&account_id=1019219315")
+.then(statusCheck)
+.then(res => res.json())
+.then(displayData)
+.catch(handleErrors)
+
+function displayData(res) {
+    //Display Winrate Here
+    let todayDate = yyyymmdd();
+    let totalBattles = res["data"]["1019219315"]["pvp"][todayDate]["battles"];
+    let battlesWon = res["data"]["1019219315"]["pvp"][todayDate]["wins"];
+    let winrate = battlesWon / totalBattles * 100;
+    winrate = winrate.toFixed(2);
+    let winrateText = document.getElementById("winrate");
+    winrateText.textContent = "His PVP (Random Mode) Winrate is: " + winrate + "%";
+    //Display Best Game Data
+
+}
+
+function yyyymmdd() {
+    var now = new Date();
+    var y = now.getFullYear();
+    var m = now.getMonth() + 1;
+    var d = now.getDate();
+    return '' + y + (m < 10 ? '0' : '') + m + (d < 10 ? '0' : '') + d;
+}
+
+
+/**======================== StatusCheck/Error Handling ================= */
+async function statusCheck(res) {
+    if (!res.ok) {
+        throw new Error(await res.text());
+    } else {
+        return res;
+    }
+}
+
+function handleErrors(error) {
+    console.log(error);
+}
 /*=============== SHOW SCROLL UP ===============*/
 const scrollUp = () =>{
     const scrollUp = document.getElementById('scroll-up')

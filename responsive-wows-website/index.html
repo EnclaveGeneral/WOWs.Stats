@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+      <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
 
       <!--=============== REMIXICONS ===============-->
       <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
@@ -15,6 +15,12 @@
 
       <!--=============== CSS ===============-->
       <link rel="stylesheet" href="assets/css/styles.css">
+
+      <!-- BootStrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+      <!-- BootStrap Javascript -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
       <title>WOWs.Stats</title>
    </head>
@@ -98,7 +104,7 @@
                         <h3 class="home__info-title">
                            10K<span>+</span>
                         </h3>
-                        <span class="home__info-subtitle">
+                        <span class="home__info-subtitle" style="color: #fbfbfb;">
                            Player <br> Datas
                         </span>
                      </div>
@@ -107,7 +113,7 @@
                         <h3 class="home__info-title">
                            200<span>+</span>
                         </h3>
-                        <span class="home__info-subtitle">
+                        <span class="home__info-subtitle" style="color: #fbfbfb;">
                            Warships <br> Information
                         </span>
                      </div>
@@ -116,7 +122,7 @@
                         <h3 class="home__info-title">
                            5<span>+</span>
                         </h3>
-                        <span class="home__info-subtitle">
+                        <span class="home__info-subtitle" style="color: #fbfbfb;">
                            Server <br> Regions
                         </span>
                      </div>
@@ -130,35 +136,88 @@
                      <img src="assets/img/logo.png" alt="home image" class="home__img">
                      <!--<h1 class="home__blob-title">ACTION STATION</h1>-->
                   <!--</div>-->
-
-                  <div class="home__shadow"></div>
                </div>
             </div>
          </section>
 
-         <!-- CHAT BOX Button-->
-         <section id="chatbot" >
-            <button type="button" id="start-chat-btn">ChatBot</button>
-            <div id="myForm">
-               <form class="form-container">
-                 <h1>WOWs Chatbot!</h1>
-                 <div id="msg_contents">
+         <!-- CHAT BOX SECTION -->
+         <button id="start-chat-btn" class="btn-primary">CHAT</button>
+         <section class="position-fixed bottom-0 end-0" id="chatbox">
+            <div class="container">
 
-                 </div>
-                 <label for="msg"><b>Message</b></label>
-                 <textarea placeholder="Type message.." name="msg" required></textarea>
-                 <div class="btns">
-                  <button type="submit" class="btn">Send</button>
-                  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                 </div>
-               </form>
-             </div>
-         </section>
+              <div class="row d-flex justify-content-end">
+                <div class="overflow-auto w-50 col-lg-8 col-sm-6 col-sm-6 col-xs-6">
+                  <div class="col"></div>
+
+                  <div class="card" id="chat1" style="border-radius: 15px;">
+                    <div id="chatbox_header"
+                      class="card-header d-flex align-items-center p-3 text-white border-bottom-0"
+                      style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                      <i class="fas fa-angle-left"></i>
+                      <p class="mb-0 ms-0 bold">Live chat</p>
+                      <i class="fas fa-times"></i>
+                      <img id="close_chat" src="assets/img/cross-out-icon-3.png" alt="exit chatbot" class="ms-auto me-0" style="height: 35px; width: 35px;" >
+                    </div>
+                    <div class="card-body">
+
+                      <div class="d-flex flex-row justify-content-start mb-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/768px-ChatGPT_logo.svg.png"
+                          alt="avatar 1" style="width: 45px; height: 100%;">
+                        <div class="p-3 ms-3" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
+                          <p class="small mb-0">Hello and Welcome to WOWs.chat!
+                            below.</p>
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row justify-content-end mb-4">
+                        <div class="p-3 me-3 border" style="border-radius: 15px; background-color: #fbfbfb;">
+                          <p class="small mb-0">Can you tell me which ship has the highest DPM in all Tier 10 Destroyers?</p>
+                        </div>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+                          alt="avatar 1" style="width: 45px; height: 100%;">
+                      </div>
+
+                      <div class="d-flex flex-row justify-content-start mb-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/768px-ChatGPT_logo.svg.png"
+                          alt="avatar 1" style="width: 45px; height: 100%;">
+                        <div class="ms-3" style="border-radius: 15px;">
+                          <div class="bg-image">
+                            <img src="assets/img/f-sherman.png"
+                              style="border-radius: 15px;" alt="video">
+                            <a href="#!">
+                              <div class="mask"></div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row justify-content-start mb-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/768px-ChatGPT_logo.svg.png"
+                          alt="avatar 1" style="width: 45px; height: 100%;">
+                        <div class="p-3 ms-3" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
+                          <p class="small mb-0">
+                           Forrest Sherman, an American T10 coal destroyer, currently has the highest DPM of all T10 destroyers,
+                           with a SAP DPM of
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="form-outline">
+                        <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+                        <label class="form-label" for="textAreaExample">Type your message</label>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </section>
+         <!-- END CHAT BOX -->
 
          <!-- REACT TEST SECTION -->
-         <section id="react_test">
-
-         </section>
 
          <!--==================== POPULAR ====================-->
          <section class="popular section" id="popular">
@@ -272,8 +331,6 @@
                   <div>
                      <img src="assets/img/Dr_Anderson.png" alt="matrix anderson icon">
                   </div>
-
-                  <div class="choose__shadow"></div>
                </div>
 
                <div class="choose__content">
@@ -290,17 +347,14 @@
                   <div class="choose__faq">
                      <div class="choose__faq-item">
                         <div class="choose__faq-header">
-                           <div class="choose__faq-icon">
-                              <i class="ri-add-line"></i>
+                           <div id="winrate_select" class="choose__faq-icon">
+                              <i id="winrate_deselect" class="ri-add-line"></i>
                            </div>
                            <h3 class="choose__faq-title">His Winrate?</h3>
                         </div>
 
                         <div class="choose__faq-content">
-                           <p class="choose__faq-description">
-                              We make new designs every year,
-                              fashion designs, trending and of
-                              the best quality.
+                           <p id="winrate" class="choose__faq-description">
                            </p>
                         </div>
                      </div>
@@ -315,9 +369,7 @@
 
                         <div class="choose__faq-content">
                            <p class="choose__faq-description">
-                              We are the industrial chain of
-                              quality lighting products and offer
-                              the most advantageous price.
+                              French Tier 10 Battleship: Bourgogne
                            </p>
                         </div>
                      </div>
@@ -332,9 +384,10 @@
 
                         <div class="choose__faq-content">
                            <p class="choose__faq-description">
-                              You will not be left without the lamp
-                              you chose, we have a large stock
-                              possible in all models.
+                              Damage: 280,683 <br>
+                              # Ships Destroyed: 6 <br>
+                              Max Experience: 5196 <br>
+                              Max Aircrafts Destroyed: 48 <br>
                            </p>
                         </div>
                      </div>
@@ -349,9 +402,10 @@
 
                         <div class="choose__faq-content">
                            <p class="choose__faq-description">
-                              Our quality control does everything
-                              possible to send you the best
-                              possible product for your home.
+                              Learn from youtubers, guides, etc <br>
+                              Flamu, PQ, Malta <br>
+                              Play a lot, learn alot <br>
+                              Think before, during, and after! <br>
                            </p>
                         </div>
                      </div>
@@ -365,8 +419,8 @@
             <div class="features__container container grid">
                <div class="features__image">
                   <div class="features__blob">
-                     <img src="assets/img/features-lamp.png" alt="home image" class="features__img">
-                     <h1 class="features__blob-title">LIGHT</h1>
+                     <img src="assets/img/ragnar.png" alt="Pan-EU DD Ragnar" class="features__img">
+                     <h1 class="features__blob-title">RAGNAR</h1>
                   </div>
 
                   <div class="features__shadow"></div>
@@ -374,36 +428,41 @@
 
                <div class="features__content">
                   <div class="features__data">
-                     <h2 class="section__title">Latest Features</h2>
+                     <h2 class="section__title">Ship Showcase</h2>
                      <p class="features__description">
-                        We always provide the latest and best
-                        features for your customer, don't worry, we
-                        provide the latest technology for you.
+                        Pan-European Union Tier 10 Destroyer Ragnar,
+                        a beast armed with 2x2 152mm high caliber Cruiser
+                        level artilleries. Equipped with Swedish radar
+                        for scouting purposes.
                      </p>
                   </div>
 
                   <div class="features__info">
                      <div class="features__info-card">
                         <h3 class="features__info-title">
-                           Voltage <br> Settings
+                           Healthpool: <br> 30,000 Hitpoints <br>
+                           <img src="assets/img/ship-hull.jpg" alt="ship hull">
                         </h3>
                      </div>
 
                      <div class="features__info-card">
                         <h3 class="features__info-title">
-                           Application <br> Control
+                           Main Batteries: <br> 152 mm/53 Model 1942 2x2 <br>
+                           <img src="assets/img/main-battery.jpg" alt="ship guns">
                         </h3>
                      </div>
 
                      <div class="features__info-card">
                         <h3 class="features__info-title">
-                           Voice <br> Control
+                           Fire Control System: <br> SUO Mk 10 Mod. 1 <br>
+                           <img src="assets/img/fire-control.jpg" alt="ship system">
                         </h3>
                      </div>
 
                      <div class="features__info-card">
                         <h3 class="features__info-title">
-                           Schedule <br> Settings
+                           Propulsion: <br> 76,000 HP <br>
+                           <img src="assets/img/propulsion-system.jpg" alt="ship propulsion">
                         </h3>
                      </div>
                   </div>
@@ -415,23 +474,22 @@
          <section class="products section" id="products">
             <div class="products__container container grid">
                <div class="products__data">
-                  <h2 class="section__title">Our Product</h2>
+                  <h2 class="section__title">Ship Gallery</h2>
                   <p class="products__description">
-                     Discover all our unique products that
-                     are suitable for your home.
+                     Discover the trending ships right now!
                   </p>
                </div>
 
                <div class="products__content grid">
                   <article class="products__card">
                      <div class="products__blob">
-                        <img src="assets/img/modern-lamp.png" alt="products image" class="products__img">
+                        <img src="assets/img/malta.png" alt="UK Malta" class="products__img">
                      </div>
 
-                     <h3 class="products__name">Modern Light</h3>
-                     <span class="products__subtitle">Hanging Light</span>
+                     <h3 class="products__name">Malta</h3>
+                     <span class="products__subtitle">Aircraft Carrier</span>
                      <h3 class="products__price">
-                        <span>$</span>14
+                        <span><img src="assets/img/coal.png"> </span><span class="ship_costs">268,000</span>
                      </h3>
 
                      <button class="products__button">
@@ -441,13 +499,13 @@
 
                   <article class="products__card">
                      <div class="products__blob">
-                        <img src="assets/img/industrial-lamp.png" alt="products image" class="products__img">
+                        <img src="assets/img/defence.png" alt="UK Defence" class="products__img">
                      </div>
 
-                     <h3 class="products__name">Industrial Light</h3>
-                     <span class="products__subtitle">Hanging Light</span>
+                     <h3 class="products__name">Defence</h3>
+                     <span class="products__subtitle">Battlecruiser</span>
                      <h3 class="products__price">
-                        <span>$</span>20
+                        <span><img src="assets/img/research-points.png"> </span><span class="ship_costs">96,000</span>
                      </h3>
 
                      <button class="products__button">
@@ -457,13 +515,13 @@
 
                   <article class="products__card">
                      <div class="products__blob">
-                        <img src="assets/img/superbolw-lamp.png" alt="products image" class="products__img">
+                        <img src="assets/img/petropavlovsk.png" alt="products image" class="products__img">
                      </div>
 
-                     <h3 class="products__name">Superbolw Light</h3>
-                     <span class="products__subtitle">Hanging Light</span>
+                     <h3 class="products__name">Petropavlovsk</h3>
+                     <span class="products__subtitle">Heavy Cruiser</span>
                      <h3 class="products__price">
-                        <span>$</span>18
+                        <span><img src="assets/img/silver.png"> </span><span class="ship_costs">20M</span>
                      </h3>
 
                      <button class="products__button">
@@ -473,13 +531,13 @@
 
                   <article class="products__card">
                      <div class="products__blob">
-                        <img src="assets/img/ultrawide-lamp.png" alt="products image" class="products__img">
+                        <img src="assets/img/f-sherman.png" alt="products image" class="products__img">
                      </div>
 
-                     <h3 class="products__name">Ultrawide Light</h3>
-                     <span class="products__subtitle">Hanging Light</span>
+                     <h3 class="products__name">Forrest Sherman</h3>
+                     <span class="products__subtitle">Gunboat Destroyer</span>
                      <h3 class="products__price">
-                        <span>$</span>16
+                        <span><img src="assets/img/coal.png"> </span><span class="ship_costs">248,000</span>
                      </h3>
 
                      <button class="products__button">
@@ -489,13 +547,13 @@
 
                   <article class="products__card">
                      <div class="products__blob">
-                        <img src="assets/img/roundness-light.png" alt="products image" class="products__img">
+                        <img src="assets/img/Conde.png" alt="products image" class="products__img">
                      </div>
 
-                     <h3 class="products__name">Roundness Light</h3>
-                     <span class="products__subtitle">Hanging Light</span>
+                     <h3 class="products__name">Condé </h3>
+                     <span class="products__subtitle">Heavy Cruiser</span>
                      <h3 class="products__price">
-                        <span>$</span>17
+                        <span><img src="assets/img/silver.png"> </span><span class="ship_costs">47.5M</span>
                      </h3>
 
                      <button class="products__button">
@@ -505,13 +563,13 @@
 
                   <article class="products__card">
                      <div class="products__blob">
-                        <img src="assets/img/stickness-light.png" alt="products image" class="products__img">
+                        <img src="assets/img/Jean Bart.png" alt="products image" class="products__img">
                      </div>
 
-                     <h3 class="products__name">Stickness Light</h3>
-                     <span class="products__subtitle">Hanging Light</span>
+                     <h3 class="products__name">Jean Bart</h3>
+                     <span class="products__subtitle">Fast Battleship</span>
                      <h3 class="products__price">
-                        <span>$</span>28
+                        <span><img src="assets/img/doubloons.png"> </span><span class="ship_costs">19,500</span>
                      </h3>
 
                      <button class="products__button">
@@ -521,13 +579,13 @@
 
                   <article class="products__card">
                      <div class="products__blob">
-                        <img src="assets/img/superjet-light.png" alt="products image" class="products__img">
+                        <img src="assets/img/graf-spee.png" alt="products image" class="products__img">
                      </div>
 
-                     <h3 class="products__name">Superjet Light</h3>
-                     <span class="products__subtitle">Hanging Light</span>
+                     <h3 class="products__name">Graf Spee</h3>
+                     <span class="products__subtitle">Pocket Battleship</span>
                      <h3 class="products__price">
-                        <span>$</span>15
+                        <span><img src="assets/img/doubloons.png"> </span><span class="ship_costs">4,500</span>
                      </h3>
 
                      <button class="products__button">
@@ -537,13 +595,13 @@
 
                   <article class="products__card">
                      <div class="products__blob">
-                        <img src="assets/img/nakedness-lamp.png" alt="products image" class="products__img">
+                        <img src="assets/img/gorizia.png" alt="products image" class="products__img">
                      </div>
 
-                     <h3 class="products__name">Nakedness Light</h3>
-                     <span class="products__subtitle">Hanging Light</span>
+                     <h3 class="products__name">Gorizia</h3>
+                     <span class="products__subtitle">Heavy Cruiser</span>
                      <h3 class="products__price">
-                        <span>$</span>10
+                        <span><img src="assets/img/doubloons.png"> </span><span class="ship_costs">7,500</span>
                      </h3>
 
                      <button class="products__button">
@@ -560,8 +618,8 @@
                <div class="join__bg grid">
                   <div class="join__image">
                      <div class="join__blob">
-                        <img src="assets/img/join-lamp.png" alt="join image" class="join__img">
-                        <h1 class="join__blob-title">LIGHT</h1>
+                        <img src="assets/img/Jean Bart.png" alt="join image" class="join__img">
+                        <h1 class="join__blob-title">ACTION</h1>
                      </div>
 
                      <div class="join__shadow"></div>
@@ -569,10 +627,10 @@
 
                   <div class="join__content grid">
                      <div class="join__data">
-                        <h2 class="section__title">Get Started</h2>
+                        <h2 class="section__title">Join My Mailinglist!</h2>
                         <p class="join__description">
-                           Do not miss it, join us and get <br>
-                           interesting discounts with us.
+                           The next episode of naval action awaits, <br>
+                           captain!
                         </p>
                      </div>
 
@@ -580,7 +638,7 @@
                         <input type="email" placeholder="Enter your email" class="join__input">
 
                         <button class="button join__button">
-                           Join Now
+                           Subscribe!
                         </button>
                      </form>
                   </div>
@@ -595,13 +653,13 @@
             <div class="footer__content grid">
                <div>
                   <a href="#" class="footer__logo">
-                     SUN<span>LIGHT</span>
+                     WOWs<span>STATS</span>
                   </a>
 
                   <p class="footer__description">
-                     We have a vision to make <br>
-                     lighting evenly distributed to all <br>
-                     parts of the earth.
+                     Improvement, <br>
+                     from one metric <br>
+                     at a time.
                   </p>
                </div>
 
@@ -629,7 +687,7 @@
 
                      <ul class="footer__links">
                         <li>
-                           <a href="#" class="footer__link">What Sunlight</a>
+                           <a href="#" class="footer__link">What WOWS</a>
                         </li>
 
                         <li>
